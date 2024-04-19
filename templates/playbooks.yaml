@@ -40,14 +40,6 @@ spec:
           title: Collection name
           description: The 'collectionName' part of 'collectionOrg.collectionName'
           type: string
-        publish:
-          title: Publish mode
-          description: The the collection public or private. Note - Making it private disables devSpaces
-          type: string
-          default: Public
-          enum:
-            - Public
-            - Private
         owner:
           title: Owner
           type: string
@@ -81,7 +73,7 @@ spec:
       name: Generating the Catalog Info Component
       action: fetch:template
       input:
-        url: ../skeletons/catalog-info/
+        url: https://github.com/KB-perByte/backstage-templates/blob/main/skeletons/catalog-info/catalog-info.yaml
         values:
           repoUrl: '${{ parameters.repoUrl }}'
           owner: ${{ parameters.owner }}
@@ -92,7 +84,6 @@ spec:
           collectionName: ${{ parameters.collectionName }}
           sourceControl: github.com
           devSpacesBaseUrl: ${{ steps.ansible.output.devSpacesBaseUrl }}
-          publish: ${{ steps.ansible.output.publish }}
 
     - id: publish
       name: Publish
@@ -102,7 +93,7 @@ spec:
           - github.com
         description: ${{ parameters.description }}
         repoUrl: ${{ parameters.repoUrl }}
-        repoVisibility: ${{ steps.ansible.output.publish }}
+        repoVisibility: 'public'
 
     - id: register
       name: Register
