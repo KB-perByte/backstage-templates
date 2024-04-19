@@ -25,7 +25,7 @@ metadata:
     {%- elif values.sourceControl == "dev.azure.com" %}
     dev.azure.com/project-repo: ${{ values.repoUrl | projectSlug }}
     {%- endif %}
-  {%- if values.devSpacesBaseUrl and values.publish == "public" %}
+  {%- if values.devSpacesBaseUrl %}
   links:
     - url: ${{ values.devSpacesBaseUrl }}${{ values.repoUrl.split("=")[1].split("&")[0] }}/${{ values.repoUrl.split("=")|last}}
       title: OpenShift Dev Spaces

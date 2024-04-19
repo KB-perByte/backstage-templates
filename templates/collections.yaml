@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: collection-template
-  title: Create a Ansible Collection Project GH
+  title: Create a Ansible Collection Project
   description: Create a starter Ansible collection project preconfigured for tests and pipelines. Includes Development settings and configuration for building an execution environment
   tags:
     - recommended
@@ -73,7 +73,7 @@ spec:
       name: Generating the Catalog Info Component
       action: fetch:template
       input:
-        url: https://github.com/KB-perByte/backstage-templates/blob/main/skeletons/catalog-info/catalog-info.yaml
+        url: ../skeletons/catalog-info/
         values:
           repoUrl: '${{ parameters.repoUrl }}'
           owner: ${{ parameters.owner }}
