@@ -5,5 +5,5 @@ metadata:
   description: A collection of all Ansible templates
 spec:
   targets:
-    - ./collections.yaml
-    - ./playbooks.yaml
+    - ./templates/collections.yaml
+    - ./templates/playbooks.yaml
