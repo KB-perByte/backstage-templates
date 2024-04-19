@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: playbook-template
-  title: Create a Ansible Playbook Project
+  title: Create a Ansible Playbook Project GH
   description: Create a starter Ansible Playbook project preconfigured for tests and pipelines. Includes Development settings and configuration for building an execution environment
   tags:
     - recommended
