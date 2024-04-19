@@ -73,7 +73,7 @@ spec:
       name: Generating the Catalog Info Component
       action: fetch:template
       input:
-        url: https://github.com/KB-perByte/backstage-templates/blob/main/skeletons/catalog-info/catalog-info.yaml
+        url: ../skeletons/catalog-info/
         values:
           repoUrl: '${{ parameters.repoUrl }}'
           owner: ${{ parameters.owner }}
