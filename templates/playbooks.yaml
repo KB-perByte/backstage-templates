@@ -2,7 +2,7 @@ apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
   name: playbook-template
-  title: Create a Ansible Playbook Project
+  title: Create Ansible Playbook Project
   description: Create a starter Ansible git playbook project preconfigured for tests and pipelines. Includes Development settings and configuration for building an execution environment
   tags:
     - recommended
@@ -16,7 +16,6 @@ spec:
     - title: Provide information about the new component
       required:
         - repoUrl
-        - system
         - owner
         - collectionGroup
         - collectionName
@@ -31,7 +30,7 @@ spec:
         description:
           title: Description
           type: string
-          description: Describe this Collection and its purpose to help other users know what to use it for
+          description: Describe the playbook and its purpose to help other users understand what to use it for.
         collectionGroup:
           title: Collection group name
           description: The 'collectionOrg' part of 'collectionOrg.collectionName'
@@ -107,6 +106,7 @@ spec:
     links:
       - title: Repository
         url: ${{ steps.publish.output.remoteUrl }}
+
       - title: Open in catalog
         icon: catalog
         entityRef: ${{ steps.register.output.entityRef }}
