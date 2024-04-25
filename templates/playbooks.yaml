@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: playbook-template
   title: Create Ansible Playbook Project
-  description: Create a starter Ansible git playbook project preconfigured for tests and pipelines. Includes Development settings and configuration for building an execution environment
+  description: Create a new starter Ansible playbook project Git repository preconfigured with best practices.
   tags:
     - recommended
     - ansible
@@ -27,6 +27,10 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
+        temp:
+          title: Temp
+          type: string
+          description: Describe temp.
         description:
           title: Description
           type: string

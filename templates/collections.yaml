@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: collection-template
   title: Create Ansible Collection Project
-  description: Create a starter Ansible collection project preconfigured for tests and pipelines. Includes Development settings and configuration for building an execution environment
+  description: Create a new starter collection project Git repository preconfigured with best practices.
   tags:
     - recommended
     - ansible
