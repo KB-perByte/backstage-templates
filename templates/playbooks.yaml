@@ -27,10 +27,6 @@ spec:
           ui:options:
             allowedHosts:
               - github.com
-        temp:
-          title: Temp
-          type: string
-          description: Describe temp.
         description:
           title: Description
           type: string
