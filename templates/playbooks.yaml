@@ -57,6 +57,12 @@ spec:
               kind:
                 - System
   steps:
+    - id: log
+      name: Parse Entity Reference
+      action: debug:log
+      input:
+        extra: '${{ parameters.repoUrl }}'
+
     - id: ansible
       name: Generating the Ansible Source Code Component
       action: ansible:content:create
