@@ -20,13 +20,13 @@ spec:
         - collectionGroup
         - collectionName
       properties:
-        repoUrl:
-          title: Repository Location
-          type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
+        # repoUrl:
+        #   title: Repository Location
+        #   type: string
+        #   ui:field: RepoUrlPicker
+        #   ui:options:
+        #     allowedHosts:
+        #       - github.com
         description:
           title: Description
           type: string
