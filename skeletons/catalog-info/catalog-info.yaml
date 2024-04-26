@@ -27,8 +27,8 @@ metadata:
     {%- endif %}
   {%- if values.devSpacesBaseUrl %}
   links:
-    - url: ${{ values.devSpacesBaseUrl }}#https://github.com/${{ values.repoUrl.split("=")[1].split("&")[0] }}/${{ values.repoUrl.split("=")|last}}
-      title: OpenShift Dev Spaces
+    - url: ${{ values.devSpacesBaseUrl }}
+      title: Ansible Workspace link
       icon: web
   {%- endif %}
 spec:
