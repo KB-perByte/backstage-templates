@@ -84,13 +84,19 @@ spec:
         applicationType: playbook-project
         sourceControl: github.com
 
+    - id: log
+      name: Parse Entity Reference
+      action: debug:log
+      input:
+        extra: ${{ steps.ansible.output.repoUrl }}
+
     - id: catalogTemplate
       name: Generating the Catalog Info Component
       action: fetch:template
       input:
         url: ../skeletons/catalog-info/
         values:
-          repoUrl: '${{ parameters.repoUrl }}'
+          repoUrl: ${{ steps.ansible.output.repoUrl }}
           owner: ${{ parameters.owner }}
           system: ${{ parameters.system }}
           applicationType: playbook-project
@@ -107,7 +113,7 @@ spec:
         allowedHosts:
           - github.com
         description: ${{ parameters.description }}
-        repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: ${{ steps.ansible.output.repoUrl }}
         repoVisibility: 'public'
         defaultBranch: main
 
