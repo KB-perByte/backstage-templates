@@ -15,7 +15,8 @@ spec:
   parameters:
     - title: Provide information about the new component
       required:
-        - repoUrl
+        - repoOwner
+        - repoName
         - owner
         - collectionGroup
         - collectionName
