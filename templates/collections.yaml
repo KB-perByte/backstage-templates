@@ -22,15 +22,15 @@ spec:
         - collectionName
       properties:
         repoOwner:
-          title: Source code repository organization name  or username
+          title: Source code repository organization name or username
           type: string
-          description: The organization name of your repository. For example, “my-github-username”.
+          description: The organization name or username of your source code repository. For example, “my-github-username”.
         repoName:
           title: Collection repository name
           description: The name of the new collection project repository. For example, “my-new-collection-repo”.
           type: string
         description:
-          title: Description
+          title: Collection description
           type: string
           description: Describe the collection and its purpose to help other users understand what to use it for.
         collectionGroup:

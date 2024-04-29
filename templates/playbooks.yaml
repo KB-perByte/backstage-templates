@@ -30,7 +30,7 @@ spec:
           description: The name of the new playbook project repository. For example, “my-new-playbook-repo”.
           type: string
         description:
-          title: Playbook project description
+          title: Playbook description
           type: string
           description: Describe the playbook and its purpose to help other users understand what to use it for.
         collectionGroup:
