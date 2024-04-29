@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: collection-template
   title: Create Ansible Collection Project
-  description: Create a new starter collection project Git repository preconfigured with best practices.
+  description: Create a new starter collection Git project preconfigured with best practices.
   tags:
     - recommended
     - ansible
@@ -34,12 +34,12 @@ spec:
           type: string
           description: Describe the collection and its purpose to help other users understand what to use it for.
         collectionGroup:
-          title: Collection organization
-          description: The new collection project organization name. For example, “my-new-collection-org”.
+          title: Collection namespace
+          description: The new collection project's namespace. For example, “my-new-collection-namespace”.
           type: string
         collectionName:
           title: Collection name
-          description: The new collection project collection name. For example, “my-new-collection-name”.
+          description: The new collection project's name. For example, “my-new-collection-name”.
           type: string
         owner:
           title: Catalog Owner name

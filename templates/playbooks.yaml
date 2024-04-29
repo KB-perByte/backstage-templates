@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: playbook-template
   title: Create Ansible Playbook Project
-  description: Create a new starter playbook project Git repository preconfigured with best practices.
+  description: Create a new starter Ansible playbook Git project preconfigured with best practices. The project also scaffolds a collection to help get you started.
   tags:
     - recommended
     - ansible
@@ -34,12 +34,12 @@ spec:
           type: string
           description: Describe the playbook and its purpose to help other users understand what to use it for.
         collectionGroup:
-          title: Playbook project collection organization
-          description: The collection organization name in your playbook repository. For example, “my-new-collection-org”.
+          title: Playbook project's collection namespace
+          description: The collection namespace in your new playbook repository. For example, “my-new-collection-namespace”.
           type: string
         collectionName:
-          title: Playbook project collection name
-          description: The collection name in your new playbook project repository. For example, “my-new-collection-name”.
+          title: Playbook project's collection name
+          description: The collection name in your new playbook repository. For example, “my-new-collection-name”.
           type: string
         owner:
           title: Catalog Owner name
