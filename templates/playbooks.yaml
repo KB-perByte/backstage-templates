@@ -3,7 +3,7 @@ kind: Template
 metadata:
   name: playbook-template
   title: Create Ansible Playbook Project
-  description: Create a new starter Ansible playbook project Git repository preconfigured with best practices.
+  description: Create a new starter playbook project Git repository preconfigured with best practices.
   tags:
     - recommended
     - ansible
@@ -21,36 +21,30 @@ spec:
         - collectionGroup
         - collectionName
       properties:
-        # repoUrl:
-        #   title: Repository Location
-        #   type: string
-        #   ui:field: RepoUrlPicker
-        #   ui:options:
-        #     allowedHosts:
-        #       - github.com
         repoOwner:
-          title: Source code Git repository owner
+          title: Source code repository organization name or username
           type: string
-          description: The organization name or username of your source code repository. For example “my-github-username”.
+          description: The organization name or username of your source code repository. For example, “my-github-username”.
         repoName:
-          title: Playbook Git repository name
-          description: The name of the new playbook project Git repository. For example “my-new-playbook-repo”
+          title: Playbook repository name
+          description: The name of the new playbook project repository. For example, “my-new-playbook-repo”.
           type: string
         description:
-          title: Description
+          title: Playbook project description
           type: string
           description: Describe the playbook and its purpose to help other users understand what to use it for.
         collectionGroup:
-          title: Playbook project group name
-          description: The 'playProjOrg' part of 'playPorjOrg.playProjName'
+          title: Playbook project collection organization
+          description: The collection organization name in your playbook repository. For example, “my-new-collection-org”.
           type: string
         collectionName:
-          title: Playbook project name
-          description: The 'playProjName' part of 'playProjOrg.playProjName'
+          title: Playbook project collection name
+          description: The collection name in your new playbook project repository. For example, “my-new-collection-name”.
           type: string
         owner:
-          title: Owner
+          title: Catalog Owner name
           type: string
+          description: The Red Hat Developer Hub catalog item owner. This will appear on the “My items” tab. For example, “my-devhub-username”.
           ui:field: EntityPicker
           ui:options:
             catalogFilter:
@@ -60,18 +54,13 @@ spec:
         system:
           title: System
           type: string
+          description: The Red Hat Developer Hub system catalog item name. This will appear on the “My items” tab. For example, “my-devhub-system”.
           ui:field: EntityPicker
           ui:options:
             catalogFilter:
               kind:
                 - System
   steps:
-    - id: log
-      name: Parse Entity Reference
-      action: debug:log
-      input:
-        extra: 'github.com?owner=${{ parameters.repoOwner }}&repo=${{ parameters.repoName }}'
-
     - id: ansible
       name: Generating the Ansible Source Code Component
       action: ansible:content:create
@@ -83,12 +72,6 @@ spec:
         collectionName: '${{ parameters.collectionName }}'
         applicationType: playbook-project
         sourceControl: github.com
-
-    - id: log
-      name: Parse Entity Reference
-      action: debug:log
-      input:
-        extra: ${{ steps.ansible.output.repoUrl }}
 
     - id: catalogTemplate
       name: Generating the Catalog Info Component

@@ -28,7 +28,7 @@ metadata:
   {%- if values.devSpacesBaseUrl %}
   links:
     - url: ${{ values.devSpacesBaseUrl }}
-      title: Ansible Workspace link
+      title: Open in Ansible development workspaces
       icon: web
   {%- endif %}
 spec:

@@ -15,33 +15,36 @@ spec:
   parameters:
     - title: Provide information about the new component
       required:
-        - repoUrl
+        - repoOwner
+        - repoName
         - owner
         - collectionGroup
         - collectionName
       properties:
-        repoUrl:
-          title: Repository Location
+        repoOwner:
+          title: Source code repository organization name  or username
           type: string
-          ui:field: RepoUrlPicker
-          ui:options:
-            allowedHosts:
-              - github.com
+          description: The organization name of your repository. For example, “my-github-username”.
+        repoName:
+          title: Collection repository name
+          description: The name of the new collection project repository. For example, “my-new-collection-repo”.
+          type: string
         description:
           title: Description
           type: string
           description: Describe the collection and its purpose to help other users understand what to use it for.
         collectionGroup:
-          title: Collection group name
-          description: The 'collectionOrg' part of 'collectionOrg.collectionName'
+          title: Collection organization
+          description: The new collection project organization name. For example, “my-new-collection-org”.
           type: string
         collectionName:
           title: Collection name
-          description: The 'collectionName' part of 'collectionOrg.collectionName'
+          description: The new collection project collection name. For example, “my-new-collection-name”.
           type: string
         owner:
-          title: Owner
+          title: Catalog Owner name
           type: string
+          description: The Red Hat Developer Hub catalog item owner. This will appear on the “My items” tab. For example, “my-devhub-username”.
           ui:field: EntityPicker
           ui:options:
             catalogFilter:
@@ -51,6 +54,7 @@ spec:
         system:
           title: System
           type: string
+          description: The Red Hat Developer Hub system catalog item name. This will appear on the “My items” tab. For example, “my-devhub-system”.
           ui:field: EntityPicker
           ui:options:
             catalogFilter:
@@ -61,11 +65,11 @@ spec:
       name: Generating the Ansible Source Code Component
       action: ansible:content:create
       input:
-        repoUrl: '${{ parameters.repoUrl }}'
+        repoOwner: '${{ parameters.repoOwner }}'
+        repoName: '${{ parameters.repoName }}'
         description: '${{ parameters.description }}'
         collectionGroup: '${{ parameters.collectionGroup }}'
         collectionName: '${{ parameters.collectionName }}'
-        publish: '${{ parameters.publish }}'
         applicationType: collection-project
         sourceControl: github.com
 
@@ -75,7 +79,7 @@ spec:
       input:
         url: ../skeletons/catalog-info/
         values:
-          repoUrl: '${{ parameters.repoUrl }}'
+          repoUrl: ${{ steps.ansible.output.repoUrl }}
           owner: ${{ parameters.owner }}
           system: ${{ parameters.system }}
           applicationType: collection-project
@@ -92,7 +96,7 @@ spec:
         allowedHosts:
           - github.com
         description: ${{ parameters.description }}
-        repoUrl: ${{ parameters.repoUrl }}
+        repoUrl: ${{ steps.ansible.output.repoUrl }}
         repoVisibility: 'public'
         defaultBranch: main
 
