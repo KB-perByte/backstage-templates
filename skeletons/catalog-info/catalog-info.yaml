@@ -15,7 +15,11 @@ metadata:
   {%- endif %}
   tags:
     - ansible
+    {%- if values.applicationType == "playbook-project" %}
+    - playbook
+    {%- elif values.applicationType == "collection-project" %}
     - collection
+    {%- endif %}
   annotations:
     backstage.io/techdocs-ref: dir:.
     {%- if values.sourceControl == "gitlab.com" %}
