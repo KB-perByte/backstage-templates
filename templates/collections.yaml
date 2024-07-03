@@ -20,6 +20,7 @@ spec:
         - owner
         - collectionGroup
         - collectionName
+        - sourceControl
       properties:
         sourceControl:
           title: Souce control
