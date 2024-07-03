@@ -85,7 +85,7 @@ spec:
         collectionGroup: '${{ parameters.collectionGroup }}'
         collectionName: '${{ parameters.collectionName }}'
         applicationType: collection-project
-        sourceControl: github.com
+        sourceControl: '${{ parameters.sourceControl }}'
 
     - id: catalogTemplate
       name: Generating the Catalog Info Component
@@ -100,7 +100,7 @@ spec:
           description: ${{ parameters.description }}
           collectionGroup: ${{ parameters.collectionGroup }}
           collectionName: ${{ parameters.collectionName }}
-          sourceControl: github.com
+          sourceControl: '${{ parameters.sourceControl }}'
           devSpacesBaseUrl: ${{ steps.ansible.output.devSpacesBaseUrl }}
 
     - id: publish
