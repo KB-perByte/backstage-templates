@@ -21,6 +21,19 @@ spec:
         - collectionGroup
         - collectionName
       properties:
+        sourceControl:
+          title: Souce control
+          type: string
+          description: Select the source control option
+          default: none
+          enum:
+            - github.com
+            - gitlab.com
+            - demosrc.com
+          enumNames:
+            - 'This is Github'
+            - 'Pikachu'
+            - 'Chalizard'
         repoOwner:
           title: Source code repository organization name or username
           type: string
