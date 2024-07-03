@@ -25,7 +25,7 @@ spec:
           title: Souce control
           type: string
           description: Select the source control option
-          default: none
+          default: github.com
           enum:
             - github.com
             - gitlab.com
