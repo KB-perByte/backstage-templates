@@ -23,13 +23,34 @@ spec:
       properties:
         sourceControl:
           title: Select source control option
-          type: string
+          type: object
           description: Select the source control option for your Ansible project.
-          default: github.com
-          enum:
-            - github.com
-          enumNames:
-            - 'GitHub'
+          required:
+            - sourceControl
+          properties:
+            sourceControl:
+              title: Component
+              type: string
+              enum:
+                - github.com
+                - gitlab.com
+          dependencies:
+            sourceControl:
+              oneOf:
+                - properties:
+                    sourceControl:
+                      enum:
+                        - github.com
+                    template:
+                      type: string
+                      default: github
+                - properties:
+                    sourceControl:
+                      enum:
+                        - gitlab.com
+                    template:
+                      type: string
+                      default: gitlab
         repoOwner:
           title: Source code repository organization name or username
           type: string
