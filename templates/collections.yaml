@@ -1,13 +1,13 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: ansible-collection-template
-  title: Create Ansible Collection Project
-  description: Create a new starter collection Git project preconfigured with best practices.
+  name: ansible-playbook-template
+  title: Create Ansible Playbook Project
+  description: Create a new starter Ansible playbook Git project preconfigured with best practices. The project also scaffolds a collection to help get you started.
   tags:
     - recommended
     - ansible
-    - collection
+    - playbook
 spec:
   owner: ansible-authors
   system: ansible
@@ -35,20 +35,20 @@ spec:
           type: string
           description: The organization name or username of your source code repository. For example, “my-github-username”.
         repoName:
-          title: Collection repository name
-          description: The name of the new collection project repository. For example, “my-new-collection-repo”.
+          title: Playbook repository name
+          description: The name of the new playbook project repository. For example, “my-new-playbook-repo”.
           type: string
         description:
-          title: Collection description
+          title: Playbook description
           type: string
-          description: Describe the collection and its purpose to help other users understand what to use it for.
+          description: Describe the playbook and its purpose to help other users understand what to use it for.
         collectionGroup:
-          title: Collection namespace
-          description: The new collection project's namespace. For example, “my-new-collection-namespace”.
+          title: Playbook project's collection namespace
+          description: The collection namespace in your new playbook repository. For example, “my-new-collection-namespace”.
           type: string
         collectionName:
-          title: Collection name
-          description: The new collection project's name. For example, “my-new-collection-name”.
+          title: Playbook project's collection name
+          description: The collection name in your new playbook repository. For example, “my-new-collection-name”.
           type: string
         owner:
           title: Catalog Owner name
@@ -79,7 +79,7 @@ spec:
         description: '${{ parameters.description }}'
         collectionGroup: '${{ parameters.collectionGroup }}'
         collectionName: '${{ parameters.collectionName }}'
-        applicationType: collection-project
+        applicationType: playbook-project
         sourceControl: '${{ parameters.sourceControl }}'
 
     - id: catalogTemplate
@@ -91,7 +91,7 @@ spec:
           repoUrl: ${{ steps.ansible.output.repoUrl }}
           owner: ${{ parameters.owner }}
           system: ${{ parameters.system }}
-          applicationType: collection-project
+          applicationType: playbook-project
           description: ${{ parameters.description }}
           collectionGroup: ${{ parameters.collectionGroup }}
           collectionName: ${{ parameters.collectionName }}
