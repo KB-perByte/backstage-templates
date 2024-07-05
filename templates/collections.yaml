@@ -1,7 +1,7 @@
 apiVersion: scaffolder.backstage.io/v1beta3
 kind: Template
 metadata:
-  name: collection-template
+  name: ansible-collection-template
   title: Create Ansible Collection Project
   description: Create a new starter collection Git project preconfigured with best practices.
   tags:
@@ -20,21 +20,16 @@ spec:
         - owner
         - collectionGroup
         - collectionName
-        - sourceControla
       properties:
-        sourceControla:
-          title: Souce control
+        sourceControl:
+          title: Select source control option
           type: string
-          description: Select the source control option
+          description: Select the source control option for your Ansible project.
           default: github.com
           enum:
             - github.com
-            - gitlab.com
-            - demosrc.com
           enumNames:
-            - 'This is Github'
-            - 'Pikachu'
-            - 'Chalizard'
+            - 'GitHub'
         repoOwner:
           title: Source code repository organization name or username
           type: string
@@ -85,7 +80,7 @@ spec:
         collectionGroup: '${{ parameters.collectionGroup }}'
         collectionName: '${{ parameters.collectionName }}'
         applicationType: collection-project
-        sourceControl: '${{ parameters.sourceControla }}'
+        sourceControl: '${{ parameters.sourceControl }}'
 
     - id: catalogTemplate
       name: Generating the Catalog Info Component
@@ -100,7 +95,7 @@ spec:
           description: ${{ parameters.description }}
           collectionGroup: ${{ parameters.collectionGroup }}
           collectionName: ${{ parameters.collectionName }}
-          sourceControl: '${{ parameters.sourceControla }}'
+          sourceControl: '${{ parameters.sourceControl }}'
           devSpacesBaseUrl: ${{ steps.ansible.output.devSpacesBaseUrl }}
 
     - id: publish
