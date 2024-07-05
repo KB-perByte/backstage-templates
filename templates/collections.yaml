@@ -29,28 +29,28 @@ spec:
             - sourceControl
           properties:
             sourceControl:
-              title: Component
+              title: Select source control from dropdown
               type: string
               enum:
-                - github.com
-                - gitlab.com
+                - GitHub
+                - GitLab
           dependencies:
             sourceControl:
               oneOf:
                 - properties:
                     sourceControl:
                       enum:
-                        - github.com
-                    template:
+                        - GitHub
+                    sourceControlUrl:
                       type: string
-                      default: github
+                      default: github.com
                 - properties:
-                    sourceControl:
+                    sourceControlUrl:
                       enum:
-                        - gitlab.com
+                        - GitLab
                     template:
                       type: string
-                      default: gitlab
+                      default: gitlab.com
         repoOwner:
           title: Source code repository organization name or username
           type: string
